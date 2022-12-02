@@ -48,7 +48,7 @@ func TestCalcMove(t *testing.T) {
 }
 
 func TestScoreCalc(t *testing.T) {
-	input := []gameMove{
+	input := []GameMove{
 		{
 			elf:       "A",
 			encrypted: "Y",
@@ -67,7 +67,7 @@ func TestScoreCalc(t *testing.T) {
 		},
 	}
 
-	result := calcScore(input)
+	result := calculateScoreForFirstQuest(input)
 	if result != 19 {
 		t.Errorf("invalid calculation got %d, but want %d", result, 19)
 	}
