@@ -22,9 +22,16 @@ const testInput = `
 
 10000`
 
-func TestMain(t *testing.T) {
-	s := run(bufio.NewScanner(strings.NewReader(testInput)))
+func TestTopOne(t *testing.T) {
+	s := run(bufio.NewScanner(strings.NewReader(testInput)), 1)
 	if s != 24000 {
+		t.Error(s)
+	}
+}
+
+func TestTopThree(t *testing.T) {
+	s := run(bufio.NewScanner(strings.NewReader(testInput)), 3)
+	if s != 45000 {
 		t.Error(s)
 	}
 }
