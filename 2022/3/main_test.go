@@ -22,7 +22,7 @@ func TestIngestCompartments(t *testing.T) {
 
 	for _, te := range tt {
 		t.Run(te.name, func(t *testing.T) {
-			result := ingestCompartments(te.left, te.right)
+			result := ingestCompartments([][]rune{te.left, te.right})
 			if result[0] != te.want {
 				t.Errorf("invalid result")
 			}
@@ -70,13 +70,17 @@ func TestCalculatePointsForRucksack(t *testing.T) {
 
 func TestSplitIntoCompartments(t *testing.T) {
 
-	l, r := splitIntoCompartments([]rune("vJrwpWtwJgWrhcsFMMfFFhFp"))
+	result := splitIntoCompartments([]rune("vJrwpWtwJgWrhcsFMMfFFhFp"))
 
-	if string(l) != "vJrwpWtwJgWr" {
+	if string(result[0]) != "vJrwpWtwJgWr" {
 		t.Errorf("invalid result for l")
 	}
 
-	if string(r) != "hcsFMMfFFhFp" {
+	if string(result[1]) != "hcsFMMfFFhFp" {
 		t.Errorf("invalid result for r")
 	}
+}
+
+func TestXxx(t *testing.T) {
+
 }
